@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title='Progetto Museale')">
+	 </head>
+
+<body id="top">
+	<div th:if="${role}=='ADMIN'">
+		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	</div>
+	<div th:if="${role == DEFAULT}">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+	<div th:unless="${role}== null">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>	
+
+<!-- Pagina Centrale ################################################################################# -->  	
+
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+     <section class="group">
+      <div class="one_half">
+      	<div class="containerLogin">
+      	<div>
+			<h6 class="heading" >Invia una email </h6>
+		</div>
+		<form action="mailto:info@museo.com" method="post" enctype="text/plain">       
+		<table  cellspacing="0" cellpadding="5" align="center" >
+ 		<tr>
+ 			<td ><h6 class="heading"> Nome:<input type=text name="name" cols="30"></h6></td>
+ 		</tr>
+ 		<tr>
+ 			<td><h6 class="heading">Email:<input type=text name="email" cols="30"></h6></td>
+ 		</tr>
+ 		<tr>
+ 			<td ><h6 class="heading">Messaggio:</h6></td>
+ 		</tr>
+ 		<tr>
+ 			<td ><h6 class="heading"><textarea name="messaggio" cols="30" rows="5"></textarea></h6></td>
+ 		</tr>
+ 		<tr>
+ 			<td  align="center"><h6 class="heading"><input type="Submit" value="Invia"></h6></td>
+ 		</tr>
+		</table>
+		</form>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    </section>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+
+
+<!-- footer       #################################################################################### -->  
+
+		<footer th:replace="fragments/base.html :: fondo"></footer>
+	
+</body>
+</html>

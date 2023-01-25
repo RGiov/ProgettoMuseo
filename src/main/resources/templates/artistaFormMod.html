@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseadmin.html :: headerfiles(title='Progetto Museale')"> </head>
+
+<body id="top">
+	<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	
+<div class="wrapper row3">
+ <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ############################################################################################# -->
+    <section class="group">
+      
+      <div class="one_half first">
+      <div class="containerLogin">
+		<div>
+			<h6 class="heading" th:text="#{header.artista}">Dati Artista</h6>
+		</div>
+			
+	<form th:action="@{/admin/artistaUpdate}" method="POST" th:object="${artista}" enctype="multipart/form-data">
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+	<table>
+    	<tr>
+    	 <td>
+        	<h6 class="heading"><span>Id:<input type="text" th:field="*{id}" required/></span></h6>
+			
+        </td>
+        <td>
+        	<h6 class="heading"><span>Nome:<input type="text" th:field="*{nome}" id="artista" th:placeholder="${artista.nome}" required /></span></h6>
+        </td>
+        <td>
+        	<h6 class="heading"><span>Cognome:<input type="text" th:field="*{cognome}" id="artista" th:placeholder="${artista.cognome}" required/></span></h6>
+        </td>
+        <td>				
+        	<h6 class="heading"><span>Data di nascita:<input type="text" th:field="*{dataDiNascita}" id="artista" th:placeholder="${artista.dataDiNascita}"required/></span></h6>
+        </td>
+    	</tr>
+    	<tr>
+        <td>
+ 				<h6 class="heading"><span>Data di morte:<input type="text" th:field="*{dataDiMorte}" id="artista" th:placeholder="${artista.dataDiMorte}"/></span></h6>
+        </td>
+        <td>
+				<h6 class="heading"><span>Luogo Nascita:<input type="text" th:field="*{luogoNascita}" id="artista" th:placeholder="${artista.luogoNascita}" required/></span></h6>
+        <td>				
+				<h6 class="heading"><span>Luogo Morte:<input type="text" th:field="*{luogoMorte}" id="artista" th:placeholder="${artista.luogoMorte}" required/></span></h6>
+        </td>
+    	</tr>    
+    	   	<tr>
+        <td>
+				<h6 class="heading"><span>Nazionalita:<input type="text" th:field="*{nazionalita}" id="artista" th:placeholder="${artista.nazionalita}" required/></span></h6>
+        <td>
+				<h6 class="heading"><span>Descrizione:<input type="text" th:field="*{descrizione}" id="artista" th:placeholder="${artista.descrizione}" /></span></h6>
+        <td>				
+				<h6 class="heading"><span>
+				<label>Photos: </label> <input type="file" name="image"
+						accept="image/png, image/jpeg" />
+				</span></h6>
+        </td>
+    	</tr>    		
+	</table>
+	<div>
+
+					
+
+				</div>
+			<div>
+				<h6 class="heading"><span><button type="submit">Invio</button></span></h6>
+			</div>
+		
+	</form>
+	</div>
+	  <div>
+	  </div>
+      </div>
+ 
+      
+ 
+
+    </section>
+    <!-- ############################################################################################# -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+	<footer th:replace="fragments/baseadmin.html :: fondo"></footer>
+</body>
+</html>

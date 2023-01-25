@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseadmin.html :: headerfiles(title='Progetto Museale')"> </head>
+
+<body id="top">
+	<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	
+<div class="wrapper row3">
+ <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ############################################################################################# -->
+    <section class="group">
+  	<form th:action="@{/admin/collezione}" method="POST" th:object="${collezione}" enctype="multipart/form-data">
+		<div th:if="${#fields.hasGlobalErrors()}">
+  		<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>	
+		    
+      <div class="one_half ">
+      <div class="containerLogin">
+		<div>
+			<h6 class="heading" th:text="#{header.collezione}">Dati Collezione</h6>
+		</div>
+		<p>
+		<table>
+    	<tr>
+    	<td>
+        	<h6 class="heading"><span>Id:<input type="text" th:field="*{id}" autofocus required/></span></h6>
+        </td>
+        <td>
+        	<h6 class="heading"><span>Nome:<input type="text" th:field="*{nome}" required/></span></h6>
+        </td>	
+		<td> 
+			<h6 class="heading"><span>Descrizione:<textarea  th:field="*{descrizione}" required cols="30" rows="4"></textarea></span></h6>
+		</td>
+		</tr>
+		<tr>
+        <td>
+			<h6 class="heading"><span>
+			<label>Curatore: </label> 
+			<select id="curatore" th:field="*{curatore}" >
+				<option th:each="curatore : ${curatori}" th:value="${curatore.id}" th:text="${curatore.nome + ' ' + curatore.cognome}"></option>
+			</select>
+			</span></h6>
+        </td>		
+		<td> 
+        				
+				<h6 class="heading"><span>
+				<label>Foto: </label> <input type="file" name="image" required accept="image/png, image/jpeg" />
+				</span></h6>
+        </td>
+		
+		</tr>		
+		</table>
+		<div>
+				<h6 class="heading"><span><button type="submit">Invio</button></span></h6>
+		</div>
+		
+	</div>
+	  	<div>
+	  	</div>
+      </div>
+
+	</form>
+    </section>
+    <!-- ############################################################################################# -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+	<footer th:replace="fragments/baseadmin.html :: fondo"></footer>
+</body>
+</html>

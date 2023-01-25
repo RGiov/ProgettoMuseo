@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head
+	th:replace="fragments/baseadmin.html :: headerfiles(title=#{pageTitle.artista})">
+</head>
+
+<body id="top">
+	<div th:if="${role}=='ADMIN'">
+		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	</div>
+	<div th:unless="${role}=='ADMIN'">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+
+
+	<!-- dettaglio Artista ############################################################################################# -->
+
+	<div class="wrapper row3">
+		<main class="hoc container clear">
+			<!-- main body -->
+			<!-- ############################################################################################# -->
+			<section class="group">
+				<div class="one_half first">
+					<img class="inspace-15 borderedbox" th:src="@{${artista.photosImagePath}}" width="120" height="168" 	alt="">
+				</div>
+				<div class="one_half">
+				<ul class="nospace group inspace-15">
+					<li class="one_half first btmspace-50">
+						<article>
+							<h6 class="heading" th:text="#{header.artistaSingolo}">Artista</h6>
+							<div th:if="${artista}" th:object="${artista}">
+								<h5 class="heading" >NOME:</h5>
+								<h6 class="heading" th:text="*{nome}">qui-va-nome</h6>
+								<h5 class="heading" >COGNOME:</h5>
+								<h6 class="heading" th:text="*{cognome}">qui-va-cognome</h6>
+								<h5 class="heading" >DATA DI NASCITA:</h5>
+								<h6 class="heading" th:text="*{dataDiNascita}">qui-va-dataNascita</h6>
+								<h5 class="heading" >LUOGO DI NASCITA:</h5>
+								<h6 class="heading" th:text="*{luogoNascita}">qui-va-luogoNascita</h6>
+								<h5 class="heading" >DATA DI MORTE:</h5>
+								<h6 class="heading" th:text="*{dataDiMorte}">qui-va-dataMorte</h6>
+								<h5 class="heading" >LUOGO MORTE:</h5>
+								<h6 class="heading" th:text="*{luogoMorte}">qui-va-luogoMorte</h6>
+								<h5 class="heading" >NAZIONALITA':</h5>
+								<h6 class="heading" th:text="*{nazionalita}">qui-va-nazionalita</h6>
+								<h5 class="heading" >DESCRIZIONE:</h5>
+								<h6 class="heading" th:text="*{descrizione}">qui-va-descrizione</h6>
+							</div>
+							<p class="nospace"></p>
+							<div th:unless="${artista}">Non esiste</div>
+							<div th:if="${session.role}=='ADMIN'">
+								<footer class="center">
+								<a class="btn" th:href="@{'/admin/modArtista' + '/' + ${artista.id}}">modifica</a>
+								<a class="btn" th:href="@{'/admin/artista' + '/' + ${artista.id}}">elimina</a>
+								</footer>
+							</div>
+						</article>
+          			</li>
+        	</ul>
+      </div>					
+ 	</section>
+    <!-- ############################################################################################# -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  	</main>
+	</div>
+
+
+
+	<!-- Gallery Photo ################################################################################### -->
+
+	<section class="group">
+		<div class="bgded overlay" style="background-image: url('images/backgrounds/01.png');">
+			<figure class="hoc container clear imgroup">
+				<!-- ################################################################################################ -->
+				<figcaption class="sectiontitle">
+					<p class="heading underline font-x2">Opere</p>
+				</figcaption>
+				<div class="boxFox" th:each="opera : ${opere}">
+					<img th:src="@{${opera.photosImagePath}}" width="120" height="168" />
+					<a href="opera.html" th:href="@{'/opera' + '/' + ${opera.id}}"
+						th:text="|${opera.titolo} ${opera.anno}|">Paolo Rossi</a>
+				</div>
+	 	</figure>
+	 	</div>
+    <!-- ################################################################################################ -->
+  </section>	
+
+
+	<footer th:replace="fragments/baseadmin.html :: fondo"></footer>
+</body>
+</html>

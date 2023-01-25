@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head  th:replace="fragments/base.html :: headerfiles(title='Progetto Museale')"> 
+</head>
+
+<div th:if="${role}=='ADMIN'">
+		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	</div>
+	<div th:if="${role == DEFAULT}">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+	<div th:unless="${role == null}">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+<body id="top">
+
+
+<div class="bgded" style="background-image:url('images/backgrounds/01.png');"> 
+
+
+<!-- Top Info ####################################################################################### -->
+
+
+ 
+
+  <!-- Slider ######################################################################################## -->
+  
+<div id="content-slider">
+    	<div id="slider">
+        	<div id="mask">
+            <ul>
+           	<li id="first" class="firstanimation">
+            <a href="#">
+            <img src="images/img_2.jpg" alt="Cougar"/>
+            </a>
+            <div class="tooltip">
+            <h1>Arte Rinascimentale</h1>
+            </div>
+            </li>
+
+            <li id="second" class="secondanimation">
+            <a href="#">
+            <img src="images/img_1.jpg" alt="Lions"/>
+            </a>
+            <div class="tooltip">
+            <h1>Arte Ellenistica</h1>
+            </div>
+            </li>
+            
+            <li id="third" class="thirdanimation">
+            <a href="#">
+            <img src="images/img_3.jpg" alt="Snowalker"/>
+            </a>
+            <div class="tooltip">
+            <h1>Il Seicento e Rubens</h1>
+            </div>
+            </li>
+                        
+            <li id="fourth" class="fourthanimation">
+            <a href="#">
+            <img src="images/img_4.jpg" alt="Howling"/>
+            </a>
+            <div class="tooltip">
+            <h1>Gli Impressionisti e Monet</h1>
+            </div>
+            </li>
+                        
+            <li id="fifth" class="fifthanimation">
+            <a href="#">
+            <img src="images/img_5.jpg" alt="Sunbathing"/>
+            </a>
+            <div class="tooltip">
+            <h1>Il Surrealismo e Dali</h1>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="progress-bar"></div>
+        </div>
+  </div>
+
+<!-- ################################################################################################# -->
+
+  	
+<!-- Pagina Centrale ################################################################################# -->  	
+  	
+    <div id="pageintro" class="hoc clear"> 
+      <!-- ########################################################################################### -->
+      <article>
+        <h3 class="heading">Datemi un museo e ve lo riempiro'.</h3>
+        <p>(Pablo Picasso)</p>
+        <footer><a class="btn" href="#">Lorem Ipsum</a></footer>
+      </article>
+      <!-- ########################################################################################### -->
+    </div>
+
+
+
+<!-- ################################################################################################# -->
+<!-- End Top Background Image Wrapper -->
+
+<!-- Blog   Centrale ################################################################################# -->  
+
+</div>
+
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ############################################################################################# -->
+    <section class="group">
+      <div class="one_half first"><img class="inspace-15 borderedbox" src="images/foto1.jpg" alt=""></div>
+      <div class="one_half">
+        <ul class="nospace group inspace-15">
+          <li class="one_half first btmspace-50">
+            <article>
+              <h6 class="heading"><a href="#">Posuere ultricies</a></h6>
+              <p class="nospace">Sed tellus fusce velit orci aliquet et condimentum sit amet dapibus eget odio vivamus urna pellentesque felis&hellip;</p>
+            </article>
+          </li>
+          <li class="one_half btmspace-50">
+            <article>
+              <h6 class="heading"><a href="#">Pellentesque ipsum</a></h6>
+              <p class="nospace">Ut quam imperdiet tincidunt vestibulum eget magna eget sem imperdiet tincidunt praesent sit amet adipiscing&hellip;</p>
+            </article>
+          </li>
+          <li class="one_half first">
+            <article>
+              <h6 class="heading"><a href="#">Risus auctor vel</a></h6>
+              <p class="nospace">Accumsan curabitur cursus porta lectus nam posuere orci in elementum molestie purus erat volutpat ullamcorper&hellip;</p>
+            </article>
+          </li>
+          <li class="one_half">
+            <article>
+              <h6 class="heading"><a href="#">Volutpat vitae</a></h6>
+              <p class="nospace">Elit purus non odio etiam dictum euismod lectus vestibulum tincidunt erat vel molestie gravida ligula lacus&hellip;</p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- ############################################################################################# -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+
+<!-- Gallery Photo ################################################################################### -->  
+
+ <section class="group">
+	<div class="bgded overlay" style="background-image:url('images/backgrounds/01.png');">
+  	<figure class="hoc container clear imgroup"> 
+    <!-- ################################################################################################ -->
+    <figcaption class="sectiontitle">
+      <p class="nospace font-xs">Pulvinar sem eu tincidunt magna</p>
+      <p class="heading underline font-x2">Nulla eu turpis curabitur</p>
+    </figcaption>
+    <ul class="nospace group">
+      <li class="one_third"><a class="imgover" href="#"><img src="images/pic1.png" alt=""></a></li>
+      <li class="one_third"><a class="imgover" href="#"><img src="images/pic2.png" alt=""></a></li>
+      <li class="one_third"><a class="imgover" href="#"><img src="images/pic3.png" alt=""></a></li>
+      <li class="one_third"><a class="imgover" href="#"><img src="images/monet2.jpg" alt=""></a></li>
+      <li class="one_third"><a class="imgover" href="#"><img src="images/pic5.png" alt=""></a></li>
+      <li class="one_third"><a class="imgover" href="#"><img src="images/artegreca.jpeg" alt=""></a></li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </figure>
+  <!-- ############################################################################################### -->
+  	</div>
+  </section>
+
+
+<!-- footer       #################################################################################### -->  
+
+<div class="bgded overlay row4" style="background-image:url('images/backgrounds/01.png');">
+  <footer th:replace="fragments/base.html :: fondo(home='/')" id="footer" class="hoc clear"> 
+ <div class="wrapper coloured">
+  <section id="ctdetails" class="hoc clear"> 
+    <!-- ############################################################################################## -->
+    <ul class="nospace clear">
+      <li class="one_quarter first">
+        <div class="block clear"><a href="tel:001-234-567-890"><i class="fas fa-phone"></i></a> <span><strong>Contattaci:</strong> +00 (123) 456 7890</span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="contattaci.html"><i class="fas fa-envelope"></i></a> <span><strong>Manda una email:</strong> support@domain.com</span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><i class="fas fa-clock"></i> <span><strong> Lunedi - Sabato:</strong> 08.00am - 18.00pm</span></div>
+      </li>
+      <li class="one_quarter">
+        <div class="block clear"><a href="https://goo.gl/maps/m5fg47TcDCkNfZEJ8" target="_blank"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Dove Trovarci</strong><a href="https://goo.gl/maps/m5fg47TcDCkNfZEJ8" target="_blank">Indirizzo</a></span></div>
+      </li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+  </footer>
+</div>
+
+</body>
+</html>

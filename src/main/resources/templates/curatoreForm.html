@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseadmin.html :: headerfiles(title='Progetto Museale')"> </head>
+
+<body id="top">
+	<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	
+<div class="wrapper row3">
+ <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ############################################################################################# -->
+    <section class="group">
+      
+      <div class="one_half first">
+      <div class="containerLogin">
+		<div>
+			<h6 class="heading" th:text="#{header.curatore}">Dati Curatore</h6>
+		</div>
+		
+		
+	<form th:action="@{curatore}" method="POST" th:object="${curatore}" enctype="multipart/form-data">
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
+		<table>
+    	<tr>
+        <td>
+        	<h6 class="heading"><span>Nome:<input type="text" th:field="*{nome}" autofocus required/></span></h6>
+			<h6 class="heading"><span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span></h6>
+        </td>
+        <td>
+        	<h6 class="heading"><span>Cognome:<input type="text" th:field="*{cognome}" required/></span></h6>
+			<h6 class="heading"><span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span></h6>
+        </td>
+        <td>				
+        	<h6 class="heading"><span>Data di nascita:<input type="date" th:field="*{dataDiNascita}" required /></span></h6>
+			<h6 class="heading"><span th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}"></span></h6>
+        </td>
+    	</tr>
+
+    	<tr>
+        <td>
+ 			<h6 class="heading"><span>Luogo Nascita:<input type="text" th:field="*{luogoNascita}" required/></span></h6>
+			<h6 class="heading"><span th:if="${#fields.hasErrors('luogoNascita')}" th:errors="*{luogoNascita}"></span></h6>  
+        </td>
+        <td>
+        	<h6 class="heading"><span>Email:<input type="text" th:field="*{email}" required/></span></h6>
+			<h6 class="heading"><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></h6>
+	      </td>
+        <td>				
+			<h6 class="heading"><span>Telefono:<input type="text" th:field="*{telefono}" required /></span></h6>
+			<h6 class="heading"><span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></span></h6>
+        </td>
+    	</tr>  
+    	
+    	<tr>  
+    	<td>
+    		<h6 class="heading"><span>Matricola:<input type="text" placeholder="1111" th:field="*{matricola}" required/></span></h6>
+			<h6 class="heading"><span th:if="${#fields.hasErrors('matricola')}" th:errors="*{matricola}"></span></h6>
+    	</td>
+        <td>
+  			<h6 class="heading"><span>Foto:<input type="file" name="image" required accept="image/png, image/jpeg" />
+				</span></h6>    
+        </td>
+        <td>
+			<h6 class="heading"><span></span></h6>
+		</td>	
+     	</tr>    		
+		</table>
+	<div>
+	
+
+			<div>
+				<span><button type="submit">Invio</button></span>
+			</div>
+		</div>
+
+	</form>
+	</div>
+	  <div>
+	  </div>
+      </div>
+ 
+      
+ 
+
+    </section>
+    <!-- ############################################################################################# -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+	<footer th:replace="fragments/baseadmin.html :: fondo"></footer>
+</body>
+</html>

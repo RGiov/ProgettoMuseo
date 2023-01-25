@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles(title='Progetto Museale')">
+	 </head>
+
+<body id="top">
+	<div th:if="${role}=='ADMIN'">
+		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	</div>
+	<div th:if="${role == DEFAULT}">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+	<div th:unless="${role}== null">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+	
+ 
+<!-- Pagina Centrale ################################################################################# -->  	
+
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+   <section class="group">
+      <div class="one_half first"><img class="inspace-15 borderedbox" src="../images/chisiamo2.jpg" alt=""></div>
+      <div class="one_half">
+      <div class="content">
+		<div>
+			<article>
+              <h6 class="heading"><a th:href="@{/chisiamo}">Chi siamo </a></h6>
+              <p class="nospace">Il museo e' una raccolta, pubblica o privata, di manufatti relativi a uno o piu' settori della cultura. 
+              Produce e ospita intere collezioni di opere d'arte dei piu' grandi artisti nazioni e internazionali!</p>
+            </article>
+		</div>
+		
+		
+		</div>
+	  <div>
+	  </div>
+      </div>
+    </section>
+    <!-- ############################################################################################# -->
+    <!-- / main body -->
+    <div class="clear"></div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+
+
+		<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

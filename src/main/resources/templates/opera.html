@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseadmin.html :: headerfiles(title=#{pageTitle.opera})"> </head>
+	
+<body id="top">
+	<div th:if="${role}=='ADMIN'">
+		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	</div>
+	<div th:unless="${role}=='ADMIN'">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+
+	<div class="wrapper row3">
+		<main class="hoc container clear">
+			<!-- main body -->
+			<!-- ############################################################################################# -->
+			<section class="group">
+				<div class="one_half first">
+					<img class="inspace-15 borderedbox" th:src="@{${opera.photosImagePath}}" width="120" height="168" 	alt="">
+				</div>
+				<div class="one_half">
+				<ul class="nospace group inspace-15">
+					<li class="one_half first btmspace-50">
+						<article>
+							<h6 class="heading" th:text="#{header.operaSingola}">opera</h6>
+							<div th:if="${opera}" th:object="${opera}">
+							<h5 class="heading" >TITOLO:</h5>
+								<h6 class="heading" th:text="*{titolo}">qui-va-titolo</h6>
+								<h5 class="heading" >ANNO:</h5>
+								<h6 class="nospace" th:text="*{anno}">qui-va-anno</h6>
+								<p>                                                         </p>
+								<h5 class="heading" >DESCRIZIONE:</h5>
+								<h6 class="heading" th:text="*{descrizione}">qui-va-descrizione</h6>
+							</div>
+							<p class="nospace"></p>
+							<div th:unless="${opera}">Non esiste</div>
+							<div th:if="${session.role}=='ADMIN'">
+								<footer class="center">
+								<a class="btn" th:href="@{'/admin/modOpera' + '/' + ${opera.id}}">modifica</a>
+								<a class="btn" th:href="@{'/admin/opera' + '/' + ${opera.id}}">elimina</a>
+								</footer>
+							</div>
+						</article>
+          			</li>
+        	</ul>
+      </div>					
+ 	</section>
+    <!-- ############################################################################################# -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  	</main>
+	</div>
+</body>
+</html>

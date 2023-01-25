@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseadmin.html :: headerfiles(title='Progetto Museale')">
+	 </head>
+
+<body id="top">
+	<div th:if="${role}=='ADMIN'">
+		<header th:replace="fragments/baseadmin.html :: intestazione"></header>
+	</div>
+	<div th:unless="${role}=='ADMIN'">
+		<header th:replace="fragments/base.html :: intestazione"></header>
+	</div>
+	
+	
+<div class="bgded overlay" style="background-image:url('images/backgrounds/01.png');">
+   <figure class="hoc container clear imgroup"> 
+    <!-- ################################################################################################ -->
+    <figcaption class="sectiontitle">
+      <p class="heading underline font-x2" th:text="#{header.curatori}">List of curatori</p>
+    </figcaption>
+    <ul class="nospace group">
+    
+    <th:block th:each="curatore : ${curatori}">
+    
+    <li class="one_third">
+	<a class="imgover" href="curatore.html" th:href="@{'/curatore' + '/' + ${curatore.id}}">
+	
+	<img th:src="@{${curatore.photosImagePath}}" width="120" height="168"/>
+	<figcaption><em th:text="|${curatore.nome} ${curatore.cognome}|">Paolo Rossi</em></figcaption></a>
+	</li>
+    </th:block>
+      </ul>
+   
+  </figure> 
+  <!-- ################################################################################################ -->
+  
+</div>	
+
+	<footer th:replace="fragments/baseadmin.html :: fondo"></footer>
+</body>
+</html>
